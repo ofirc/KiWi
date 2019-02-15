@@ -31,6 +31,7 @@ public class KiWiMap implements CompositionalMap<Integer,Integer>
     /***************	Constructors		***************/
     public KiWiMap()
     {
+        ChunkInt.MAX_ITEMS = 100;
     	ChunkInt.initPool();
         KiWi.RebalanceSize = RebalanceSize;
     	this.kiwi = new KiWi<>(new ChunkInt(), SupportScan);
@@ -245,7 +246,7 @@ public class KiWiMap implements CompositionalMap<Integer,Integer>
         ConcurrentMap concurrentMap = new ConcurrentHashMap<Integer, Integer>();
 
         Random random = new Random();
-        final int numThreads = 8;
+        final int numThreads = 1;
         ThreadPoolExecutor executor =
                 (ThreadPoolExecutor) Executors.newFixedThreadPool(numThreads);
 
